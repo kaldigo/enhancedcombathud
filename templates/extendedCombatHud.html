@@ -128,6 +128,23 @@
 			</div>
 			{{/each}}
 		</div>
+		<div class="features-container is-spells" data-iscontainer="true" data-containeractiontype="free" >
+			{{#each hudData.free.spells}}
+			<div class="features-accordion">
+				<span class="feature-accordion-title">{{this.[0].labels.level}}</span>
+				<div class="features-accordion-content">
+				{{#each this}}
+					<div {{{hasUses this}}} data-type="trigger"{{{hasUses this}}} data-itemname="{{name}}" style="background-image: url({{img}})">
+						<span class="feature-element-title">{{name}}</span>
+					</div>
+				{{/each}}
+				<div class="feature-spell-slots" data-type="{{@key}}">
+					{{{spellSlots @key}}}
+				</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
 		<div class="features-container is-consumables" data-iscontainer="true" data-containeractiontype="actions">
 			{{#each hudData.actions.consumables}}
 			<div {{{hasUses this}}} data-type="trigger" data-itemname="{{name}}" style="background-image: url({{img}})">
@@ -215,6 +232,9 @@
 			</div>
 		</div>
 		<div class="actions-container" data-actionbartype="free" data-title="{{hudData.settings.localize.specialaction}}">
+			<div class="action-element free-action" data-type="menu" data-actiontype="free" data-itemtype="spells" data-menu="is-spells" style="background-image: url(modules/enhancedcombathud/icons/spell-book.svg)">
+				<span class="action-element-title">{{hudData.settings.localize.castspell}}</span>
+			</div>
 			<div class="action-element free-action" data-type="menu" data-actiontype="free" data-itemtype="special" data-menu="is-powers"  style="background-image: url(modules/enhancedcombathud/icons/mighty-force.svg)">
 				<span class="action-element-title">{{hudData.settings.localize.usepower}}</span>
 			</div>

@@ -127,6 +127,11 @@ class CombatHud {
       }),
     };
     this.free = {
+      spells: await this.getItems({
+        actionType: ["special"],
+        itemType: ["spell"],
+        prepared: true,
+      }),
       special: await this.getItems({ actionType: ["special"], itemType: ["feat"] }),
     };
     this.other = {
